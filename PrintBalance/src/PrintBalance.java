@@ -3,8 +3,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.ArrayList;
 /**
- * TODO A simple class that needs to be localized
+ * A simple class that needs to be localized
  * 
  * @author mohan and iwemamj. Created Mar 27, 2011 and April 9, 2012.
  */
@@ -13,16 +14,16 @@ public class PrintBalance {
 
 
 	private static String result;
+	
 
 	/**
 	 * Simple Java Method that is crying out to be localized.
 	 * 
 	 * @param args
+	 * @return 
 	 */
-	public static void main(String args[]) {
-		String language = "en";
-		String country = "US";
-
+	public static ArrayList<String> PrintBalance(String language, String country) {
+		ArrayList<String> resultlist = new ArrayList<String>();
 		Locale currentLocale;
 		ResourceBundle messages;
 		SimpleDateFormat formatter;
@@ -43,16 +44,31 @@ public class PrintBalance {
 		Scanner scanInput = new Scanner(System.in);
 
 		// Greeting
-		System.out.println(messages.getString("greetings"));
+		String greet = messages.getString("greetings");
+		System.out.println(greet);
+		resultlist.add(greet);
+		
 
 		// Get User's Name
-		System.out.println(messages.getString("entername"));
-		String name = scanInput.nextLine();
-		System.out.println(messages.getString("meetyou") + name);
+		String entername = messages.getString("entername");
+		System.out.println(entername);
+		resultlist.add(entername);
+		String name = "Matt";
+		String meetyou = messages.getString("meetyou") + name;
+		System.out.println(meetyou);
+		resultlist.add(meetyou);
 
 		// print today's date, balance and bid goodbye
-			System.out.println(messages.getString("asof") + result);
-			System.out.println(messages.getString("youowe"));
-			System.out.println(messages.getString("bye"));
+			String asof = messages.getString("asof") + result;
+			System.out.println(asof);
+			resultlist.add(asof);
+			String youowe = messages.getString("youowe");
+			System.out.println(youowe);
+			resultlist.add(youowe);
+			String bye = messages.getString("bye");
+			System.out.println(bye);
+			resultlist.add(bye);
+			
+			return resultlist;
 	}
 }
