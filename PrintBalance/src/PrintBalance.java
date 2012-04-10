@@ -10,6 +10,8 @@ import java.util.Scanner;
  */
 public class PrintBalance {
 
+
+
 	private static String result;
 
 	/**
@@ -49,17 +51,8 @@ public class PrintBalance {
 		System.out.println(messages.getString("meetyou") + name);
 
 		// print today's date, balance and bid goodbye
-		if (country == "US") {
-			//System.out.println("USA!");
 			System.out.println(messages.getString("asof") + result);
 			System.out.println(messages.getString("youowe"));
 			System.out.println(messages.getString("bye"));
-		}
-		if (country != "US") {
-			//System.out.println("NOT USA!");
-			System.out.println(messages.getString("asof") + result);
-			System.out.println(messages.getString("youowe"));
-			System.out.println(messages.getString("bye"));
-		}
 	}
 }
